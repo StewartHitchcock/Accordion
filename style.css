@@ -1,0 +1,159 @@
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    height:100vh;
+    background: white;
+  }
+
+/* Overall Container for the entire accordion component, including the buttons and header*/
+  
+#accordion-container {
+    margin-top: 10px;
+}
+
+/* Top content of the #accordion-container */
+
+#accordion-header {
+    text-align: center;
+    color: #333333;
+}
+
+#accordion-header > h1 {
+    color:#008042;
+}
+
+#toggleButton {
+    color: #008042;
+    padding: 20px;
+    border: lightgrey solid 2px;
+    font-size: 25px;
+    text-transform: uppercase;
+    transition-duration: 0.3s;
+    width: 80%;
+    border-radius: 5px;
+    background-color: white;
+}
+
+#toggleButton:hover {
+    cursor: pointer;
+    background: #f2f2f2;
+    
+}
+
+#textIndicator {
+    font-size: 22px;
+}
+
+/* Contains all Accordions */
+  
+#accordion-body {
+    width: 90%;
+    margin: 0 auto;
+    color: black;
+    border: solid lightgrey 2px;
+    border-radius: 5px;
+    background-color: #ccffe6;
+}
+
+/* Container for each individual accordion */
+
+#accordion-body .container {
+    position: relative;
+    margin: 10px;
+    padding: 1px 10px;
+    border: solid lightgrey 1px;
+    border-radius: 5px;
+    background-color: white;
+}
+  
+/* Styling for the Questions of each accordion */
+  
+#accordion-body .label {
+    position: relative;
+    padding: 10px 0 15px 0;
+    font-size: 30px;
+    cursor: pointer;
+    background-color: white;
+    color: #008042;
+}
+
+/* Positions the plus sign*/
+
+#accordion-body .label::before {
+    content: '+';
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    font-size: 30px;
+    transform: translateY(-50%);
+  }
+  
+/* Denotes the styles to apply when hiding content */
+  
+#accordion-body .content {
+    position: relative;
+    height: 0;
+    font-size: 20px;
+    overflow: hidden;
+    transition: 0.5s;
+    font-style: italic;
+}
+  
+/* Unhides the content */
+
+#accordion-body .container.active .content {
+    height: 300px;
+    color: #333333;
+  }
+  
+/* Changes from plus sign to negative sign once active */
+
+#accordion-body .container.active .label::before {
+    content: '-';
+    font-size: 30px;
+}
+
+/* Media queries for responsiveness */
+
+/* iPhone 5 */
+@media (min-width: 320px){
+    #accordion-body .container.active .content {
+        height: 250px;
+    }
+
+    #accordion-container {
+        margin-top: 2px;   
+    }
+}
+
+/* iPhone X */
+@media (min-width: 375px){
+    #accordion-body .container.active .content {
+        height: 170px;
+    }
+}
+
+/* iPad to Desktop */
+@media (min-width: 768px) {
+    #accordion-container {
+        margin-top: 50px;   
+    }
+
+    #accordion-body {
+        width: 80%;
+    }
+
+    #toggleButton {
+        width: 300px;
+    }
+
+    #accordion-body .container.active .content {
+        height: 115px;
+    }
+}
+
+@media (min-width: 1268px) {
+    #accordion-body .container.active .content {
+        height: 75px;
+    }
+}
